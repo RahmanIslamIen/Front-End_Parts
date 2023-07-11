@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js Add Input Example</title>
+    <script src="vue334_dist_vue-global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="addInput">Tambah Input</button>
+      <div v-for="(input, index) in inputs" :key="index">
+        <input type="text" v-model="input.value" />
+      </div>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            inputs: [],
+          };
+        },
+        methods: {
+          addInput() {
+            this.inputs.push({ value: "" });
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
